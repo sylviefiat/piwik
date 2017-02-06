@@ -10,7 +10,7 @@ services:
     volumes:
       - ./mysql/runtime:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ROOT_PASSWORD=docker
     networks:
     - back
   app:
@@ -31,6 +31,8 @@ services:
       - app
     environment:
       - VIRTUAL_HOST
+    ports:
+      - "85:80"
     networks:
     - back
     - lb_web
